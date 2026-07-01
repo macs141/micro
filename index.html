@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Case Verification Portal</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="bg-animation">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+</div>
+
+<header>
+
+<div class="logo-area">
+
+<img src="logo34.png">
+
+<div>
+
+<h2>Case Verification Portal</h2>
+
+<p>Secure Verification System</p>
+
+</div>
+
+</div>
+
+<div class="right-header">
+
+<div class="secure-status">
+
+<span class="green-dot"></span>
+
+Secure Connection
+
+</div>
+
+<div id="clock"></div>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+<div class="glass-card">
+
+<div class="shield">
+
+🛡️
+
+</div>
+
+<h1>
+
+Verify Your Case
+
+</h1>
+
+<p class="subtitle">
+
+Enter your Case ID below to continue.
+
+</p>
+
+<div class="input-box">
+
+<input
+type="text"
+id="caseID"
+placeholder="Enter Case ID"
+maxlength="6"
+oninput="checkCase()">
+
+</div>
+
+<div id="status"></div>
+
+<div id="buttonArea">
+
+<button
+class="verifyBtn"
+onclick="startVerification()">
+
+VERIFY
+
+</button>
+
+<button
+class="registerBtn"
+onclick="window.location='newcase.html'">
+
+REGISTER
+
+</button>
+
+</div>
+
+
+
+<div id="loadingBox">
+
+<div class="scan-circle">
+
+<div class="scan-line"></div>
+
+<div class="percent" id="percent">
+
+0%
+
+</div>
+
+</div>
+
+<h3>
+
+Verification in Progress
+
+</h3>
+
+<p>
+
+Please wait while your Case ID is being securely verified.
+
+</p>
+
+<div class="progressBar">
+
+<div
+class="progress"
+id="progress">
+
+</div>
+
+</div>
+
+<div
+id="timer">
+
+30 Seconds Remaining
+
+</div>
+
+</div>
+
+<div class="features">
+
+<div>
+
+🔒 Encrypted
+
+</div>
+
+<div>
+
+✔ Verified
+
+</div>
+
+<div>
+
+⚡ Fast
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<div class="footer-top">
+
+<div>
+
+<h3>Verification Portal</h3>
+
+<p>
+
+Secure Digital Verification Platform
+
+</p>
+
+</div>
+
+<div>
+
+<p>
+
+System Status
+
+</p>
+
+<span class="online">
+
+ONLINE
+
+</span>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="footer-bottom">
+
+© 2026 Case Verification Portal
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
