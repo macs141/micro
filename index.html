@@ -1,238 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Verification Portal</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+body{
+
+background:#eaf6ff;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+
+}
+
+header{
+
+background:#b7e3ff;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:#003d66;
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+}
+
+.container{
+
+width:430px;
+max-width:95%;
+background:white;
+margin:45px auto;
+padding:35px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+text-align:center;
+
+}
+
+.logo{
+
+width:120px;
+margin-bottom:20px;
+
+}
+
+h2{
+
+color:#004d80;
+margin-bottom:20px;
+
+}
+
+input{
+
+width:100%;
+padding:15px;
+font-size:17px;
+border:1px solid #bcdfff;
+border-radius:8px;
+outline:none;
+
+}
+
+input:focus{
+
+border:1px solid #2196f3;
+
+}
+
+#message{
+
+margin-top:15px;
+font-weight:bold;
+
+}
+
+.buttons{
+
+display:none;
+margin-top:25px;
+
+}
+
+button{
+
+width:100%;
+padding:14px;
+margin-top:12px;
+background:#1f8cff;
+color:white;
+font-size:17px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#006dd9;
+
+}
+
+#loadingBox{
+
+display:none;
+margin-top:25px;
+
+}
+
+.progress{
+
+width:100%;
+height:18px;
+background:#d6ecff;
+border-radius:30px;
+overflow:hidden;
+margin-top:15px;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+background:#1f8cff;
+
+}
+
+#timer{
+
+margin-top:10px;
+font-weight:bold;
+color:#004d80;
+
+}
+
+footer{
+
+margin-top:auto;
+background:#b7e3ff;
+text-align:center;
+padding:15px;
+color:#003d66;
+font-size:14px;
+
+}
+
+.small{
+
+margin-top:15px;
+color:#666;
+font-size:13px;
+
+}
+
+</style>
 
 </head>
-
 <body>
-
-<div class="bg-animation">
-
-<div class="circle c1"></div>
-<div class="circle c2"></div>
-<div class="circle c3"></div>
-
-</div>
 
 <header>
 
-<div class="logo-area">
-
-<img src="logo34.png">
-
-<div>
-
-<h2>Case Verification Portal</h2>
-
-<p>Secure Verification System</p>
-
-</div>
-
-</div>
-
-<div class="right-header">
-
-<div class="secure-status">
-
-<span class="green-dot"></span>
-
-Secure Connection
-
-</div>
-
-<div id="clock"></div>
-
-</div>
+CASE VERIFICATION PORTAL
 
 </header>
 
+<div class="container">
 
+<img src="logo34.png" class="logo">
 
-<main>
-
-<div class="glass-card">
-
-<div class="shield">
-
-🛡️
-
-</div>
-
-<h1>
-
-Verify Your Case
-
-</h1>
-
-<p class="subtitle">
-
-Enter your Case ID below to continue.
-
-</p>
-
-<div class="input-box">
+<h2>Secure Case Verification</h2>
 
 <input
 type="text"
-id="caseID"
+id="caseid"
 placeholder="Enter Case ID"
-maxlength="6"
 oninput="checkCase()">
 
-</div>
+<div id="message"></div>
 
-<div id="status"></div>
+<div class="buttons" id="buttons">
 
-<div id="buttonArea">
+<button onclick="verifyCase()">VERIFY</button>
 
-<button
-class="verifyBtn"
-onclick="startVerification()">
-
-VERIFY
-
-</button>
-
-<button
-class="registerBtn"
-onclick="window.location='newcase.html'">
-
-REGISTER
-
-</button>
+<button onclick="location.href='newcase.html'">REGISTER NEW CASE</button>
 
 </div>
-
-
 
 <div id="loadingBox">
 
-<div class="scan-circle">
+<h3>Verifying Case...</h3>
 
-<div class="scan-line"></div>
-
-<div class="percent" id="percent">
-
-0%
-
+<div class="progress">
+<div class="bar" id="bar"></div>
 </div>
 
-</div>
-
-<h3>
-
-Verification in Progress
-
-</h3>
-
-<p>
-
-Please wait while your Case ID is being securely verified.
-
-</p>
-
-<div class="progressBar">
-
-<div
-class="progress"
-id="progress">
-
-</div>
-
-</div>
-
-<div
-id="timer">
-
+<div id="timer">
 30 Seconds Remaining
-
 </div>
 
 </div>
 
-<div class="features">
-
-<div>
-
-🔒 Encrypted
-
-</div>
-
-<div>
-
-✔ Verified
-
-</div>
-
-<div>
-
-⚡ Fast
-
+<div class="small">
+Authorized Verification Network
 </div>
 
 </div>
-
-</div>
-
-</main>
 
 <footer>
 
-<div class="footer-top">
-
-<div>
-
-<h3>Verification Portal</h3>
-
-<p>
-
-Secure Digital Verification Platform
-
-</p>
-
-</div>
-
-<div>
-
-<p>
-
-System Status
-
-</p>
-
-<span class="online">
-
-ONLINE
-
-</span>
-
-</div>
-
-</div>
-
-<hr>
-
-<div class="footer-bottom">
-
-© 2026 Case Verification Portal
-
-</div>
+© 2026 Secure Case Verification System | All Rights Reserved
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+let redirectPage="";
+
+function checkCase(){
+
+let id=document.getElementById("caseid").value.trim();
+
+let msg=document.getElementById("message");
+let btn=document.getElementById("buttons");
+
+if(id=="556221"){
+
+msg.style.color="green";
+msg.innerHTML="✔ Valid Case Found";
+btn.style.display="block";
+redirectPage="james.html";
+
+}
+
+else if(id=="997204"){
+
+msg.style.color="green";
+msg.innerHTML="✔ Valid Case Found";
+btn.style.display="block";
+redirectPage="rody.html";
+
+}
+
+else{
+
+msg.style.color="red";
+
+if(id.length>0)
+msg.innerHTML="Invalid or Wrong Case ID";
+else
+msg.innerHTML="";
+
+btn.style.display="none";
+
+}
+
+}
+
+function verifyCase(){
+
+document.getElementById("buttons").style.display="none";
+
+document.getElementById("loadingBox").style.display="block";
+
+let sec=30;
+
+let bar=document.getElementById("bar");
+
+let timer=document.getElementById("timer");
+
+let interval=setInterval(function(){
+
+sec--;
+
+timer.innerHTML=sec+" Seconds Remaining";
+
+bar.style.width=((30-sec)/30)*100+"%";
+
+if(sec<=0){
+
+clearInterval(interval);
+
+window.location.href=redirectPage;
+
+}
+
+},1000);
+
+}
+
+</script>
 
 </body>
 </html>
