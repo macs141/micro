@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rody Hansen | Alpha MAC Technologies</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #111827;
+            line-height: 1.7;
+        }
+        
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo { height: 48px; }
+        
+        .nav-links a {
+            color: #111827;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover { color: #0ea5e9; }
+        
+        .case-banner {
+            background: #f0f9ff;
+            border-bottom: 1px solid #bae6fd;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 500;
+            color: #0369a1;
+        }
+        
+        .main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 4rem;
+        }
+        
+        .profile-card {
+            background: #f8fafc;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+        
+        .profile-content { padding: 2.5rem; }
+        
+        .name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #111827;
+        }
+        
+        .designation {
+            color: #0284c8;
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+        }
+        
+        .section-title {
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin: 2.2rem 0 1.2rem;
+            font-weight: 600;
+        }
+        
+        .about-text { color: #334155; margin-bottom: 2rem; }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0284c8;
+        }
+        
+        .experience-list, .education-list {
+            list-style: none;
+        }
+        
+        .experience-list li, .education-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background: #e0f2fe;
+            color: #0284c8;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid #bae6fd;
+        }
+        
+        .contact-section {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-label {
+            width: 110px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .support-tool {
+            margin: 4rem auto;
+            max-width: 1280px;
+            text-align: center;
+            padding: 2.5rem;
+            background: #f0f9ff;
+            border-radius: 20px;
+            border: 2px solid #bae6fd;
+        }
+        
+        .support-tool a {
+            display: inline-block;
+            background: #0284c8;
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .support-tool a:hover {
+            background: #0369a1;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #64748b;
+            font-size: 0.95rem;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        @media (max-width: 768px) {
+            .main {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+                gap: 2.5rem;
+            }
+            .profile-image { height: 340px; }
+            .name { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <img src="logo34.png" alt="Alpha MAC Technologies" class="logo">
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Departments</a>
+                <a href="#">Directory</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Case ID Banner -->
+    <div class="case-banner">
+        <strong>Case ID 997204</strong> has been assigned to Rody Hansen
+    </div>
+
+    <div class="main">
+        <!-- Left Profile -->
+        <div class="profile-card">
+            <img src="rody.png" alt="Rody Hansen" class="profile-image">
+            
+            <div class="profile-content">
+                <h1 class="name">Rody Hansen</h1>
+                <p class="designation">Senior Technical Consultant</p>
+                
+                <p class="about-text">Rody Hansen is a dedicated technical consultant specializing in customer success, enterprise solutions, and cloud infrastructure optimization with over 9 years of experience.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">9+</div>
+                        <div>Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">145+</div>
+                        <div>Projects Delivered</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Expertise</h3>
+                <div class="skills">
+                    <span class="skill">Leadership</span>
+                    <span class="skill">Customer Success</span>
+                    <span class="skill">Cloud Infrastructure</span>
+                    <span class="skill">Enterprise Deployment</span>
+                    <span class="skill">Technical Training</span>
+                    <span class="skill">System Optimization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div>
+            <div class="contact-section" style="margin-bottom: 2.5rem;">
+                <h2 style="margin-bottom: 2rem; font-size: 1.8rem;">Contact Information</h2>
+                <div class="contact-item"><div class="contact-label">Email</div><div><a href="mailto:rody.hansen@alphamac-demo.com" style="color:#0284c8;">rody.hansen@alphamac-demo.com</a></div></div>
+                <div class="contact-item"><div class="contact-label">Phone</div><div>+1 (555) 010-9876</div></div>
+                <div class="contact-item"><div class="contact-label">Location</div><div>Austin, Texas</div></div>
+            </div>
+
+            <h3 class="section-title">Experience</h3>
+            <ul class="experience-list">
+                <li><strong>Senior Technical Consultant</strong> — Alpha MAC Technologies (Current)</li>
+                <li><strong>Cloud Solutions Architect</strong> — Enterprise Solutions Inc.</li>
+                <li><strong>Technical Support Lead</strong> — Tech Dynamics</li>
+            </ul>
+
+            <h3 class="section-title">Education</h3>
+            <ul class="education-list">
+                <li><strong>Master of Science in Information Technology</strong><br>University of Texas, Austin</li>
+                <li><strong>Bachelor of Engineering</strong><br>Texas A&M University</li>
+            </ul>
+
+            <div style="margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <p style="font-style: italic; color: #334155;">"Committed to delivering outstanding technical solutions and ensuring complete customer satisfaction through expert guidance."</p>
+                <p style="margin-top: 1rem; text-align: right; color: #0284c8;">— Rody Hansen</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Get Support Tool -->
+    <div class="support-tool">
+        <h2 style="margin-bottom: 1rem; color: #111827;">Need Technical Support?</h2>
+        <p style="margin-bottom: 2rem; color: #475569; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Get instant remote support from our expert team
+        </p>
+        <a href="https://www.ultraviewer.net" target="_blank">Get Support Tool</a>
+    </div>
+
+    <footer class="footer">
+        © 2026 Alpha MAC Technologies • Employee Directory Demonstration
+    </footer>
+</body>
+</html>
